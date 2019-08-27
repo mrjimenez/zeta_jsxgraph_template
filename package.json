@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "devel": "webpack --mode development",
     "devel1": "webpack index.js --output ./bundle.js --mode development",
-    "production": "webpack index.js --output ./bundle.js --mode production",
+    "production": "webpack --mode production",
+    "production1": "webpack index.js --output ./bundle.js --mode production",
     "server": "live-server"
   },
   "repository": {
