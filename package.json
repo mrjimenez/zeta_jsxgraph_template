@@ -1,0 +1,35 @@
+{
+  "name": "app_template",
+  "version": "1.0.0",
+  "description": "Zeta Tecnologia Template App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devel": "webpack --mode development",
+    "devel1": "webpack index.js --output ./bundle.js --mode development",
+    "production": "webpack index.js --output ./bundle.js --mode production",
+    "server": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrjimenez/app_template.git"
+  },
+  "keywords": [
+    "zeta_tecnologia",
+    "jsxgraph"
+  ],
+  "author": "Marcelo Roberto Jimenez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrjimenez/app_template/issues"
+  },
+  "homepage": "https://github.com/mrjimenez/app_template#readme",
+  "devDependencies": {
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "canvas": "^2.6.0",
+    "jsxgraph": "^0.99.7"
+  }
+}
