@@ -2,7 +2,7 @@
   "name": "app_template",
   "version": "1.0.0",
   "description": "Zeta Tecnologia Template App",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devel": "webpack --mode development",
@@ -26,10 +26,14 @@
   },
   "homepage": "https://github.com/mrjimenez/app_template#readme",
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "canvas": "^2.6.0",
     "jsxgraph": "^0.99.7"
   }

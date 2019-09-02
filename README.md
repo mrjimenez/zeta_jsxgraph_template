@@ -57,8 +57,31 @@ $ live-server
 
 [Webpack getting started](https://webpack.js.org/guides/getting-started/)
 
+Na configuração default, carrega "/dist/index.html", que tem que incluir "/dist/main.js", que será gerado a partir do que estiver em "/src". "/src/index.js" vai ser o entry point.
+
 ```bash
 npm install canvas
-# npx webpack
+# "npx webpack" dá no mesmo que "npm run devel"
 npm run devel
+```
+
+O webpack não precisa de configuração, mas se usar, o arquivo webpack.config.js default é:
+
+```webpack
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+## [Babel](https://babeljs.io/docs/en/usage)
+
+```bash
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+npm install --save @babel/polyfill
 ```
