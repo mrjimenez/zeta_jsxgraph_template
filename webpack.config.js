@@ -9,12 +9,13 @@ module.exports = {
   stats: {
     colors: true,
   },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        loader: 'babel-loader',
         // use: {
         // loader: 'babel-loader',
         // },

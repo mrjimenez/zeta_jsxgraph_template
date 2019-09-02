@@ -82,6 +82,7 @@ module.exports = {
 ## [Babel](https://babeljs.io/docs/en/usage)
 
 ```bash
-npm install --save-dev @babel/core @babel/cli @babel/preset-env
-npm install --save @babel/polyfill
+npm install --save-dev @babel/core @babel/cli @babel/preset-env babel-loader
+# npm install --save @babel/polyfill # Não fazer isso! Fazer a linha abaixo!
+npm install core-js@3 --save
 ```
