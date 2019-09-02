@@ -1,6 +1,6 @@
 # Application template
 
-1. Inicialização
+## NPM (package.json)
 
 ```bash
 $ mkdir app
@@ -55,6 +55,8 @@ $ npm list -g --depth=0
 $ live-server
 ```
 
+## Webpack (webpack.config.js)
+
 [Webpack getting started](https://webpack.js.org/guides/getting-started/)
 
 Na configuração default, carrega "/dist/index.html", que tem que incluir "/dist/main.js", que será gerado a partir do que estiver em "/src". "/src/index.js" vai ser o entry point.
@@ -79,7 +81,7 @@ module.exports = {
 };
 ```
 
-## [Babel](https://babeljs.io/docs/en/usage)
+## [Babel](https://babeljs.io/docs/en/usage) (babel.config.js)
 
 ```bash
 npm install --save-dev @babel/core @babel/cli @babel/preset-env babel-loader
