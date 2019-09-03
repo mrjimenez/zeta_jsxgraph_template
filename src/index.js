@@ -129,8 +129,5 @@ const properties4 = {
 // var group4 = board.create('group', g4)
 let pol4 = new zeta.DiscreteRotationPolygon(board, 7, vertices4)
 pol4.rotate(2)
-pol4.polygon.on('up', () => {
-  pol4.rotateRelative(1)
-})
 
 // ------------------------------------------------------------------------------
