@@ -1,0 +1,29 @@
+/*
+ *https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space
+ */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* O interior do body tem que ficar todo dentro do div com classe box,
+* assim não vão aparecer as barras de rolagem. */
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  border: 10px solid red;
+}
+
+.graphbox {
+  flex: 1 1 auto;
+  /* Pode tirar essa borda que não estraga, é só um exemplo */
+  border: 10px solid orange;
+}
+
+.orangebox {
+  border: 10px solid orange;
+}

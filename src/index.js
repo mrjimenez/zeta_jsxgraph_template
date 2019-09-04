@@ -1,6 +1,44 @@
 // var jsxgraph = require('jsxgraph')
 import JXG from 'jsxgraph'
+
 import * as zeta from './zeta_jsx'
+
+// CSS loader test
+import './mycss.css'
+
+// File loader test
+import imgJpg from './action-beach-blue-2127969.jpg'
+import imgSvg from './drunken_duck_Beer_2.svg'
+
+// console.log(imgJpg)
+// console.log(imgSvg)
+
+function showImage(src, width, height, alt, cls) {
+  var img = document.createElement('img')
+  img.src = src
+  if (width) {
+    img.width = width
+  }
+  if (height) {
+    img.height = height
+  }
+  if (alt) {
+    img.alt = alt
+  }
+  if (cls) {
+    img.classList.add(cls)
+  }
+  // img.style = 'border: 10px solid orange;'
+  // img.class = 'graphbox'
+  var div = document.createElement('div')
+  // div.classList.add('orangebox')
+  // This next line will just add it to the <body> tag
+  document.body.appendChild(div)
+  div.appendChild(img)
+}
+
+showImage(imgJpg, 0, 0, 0, 'graphbox')
+showImage(imgSvg)
 
 var boundingbox = [-25, 25, 25, -25, ]
 // console.log(boundingbox)
@@ -69,7 +107,8 @@ for (i = 0; i < f.borders.length; i++) {
  * modificado nas propriedades.
  */
 
-var pol3 = board.create('polygon',
+// var pol3 =
+board.create('polygon',
   [[30, 20, ], [30, 1, ], [50, 1, ], [50, 20, ], ])
 
 const vertices1 = [
@@ -78,7 +117,8 @@ const vertices1 = [
   [4.0, 6.0, ],
   [0.0, 6.0, ],
 ]
-var poligono1 = new zeta.TranslatablePolygon(board, vertices1)
+// var poligono1 =
+new zeta.TranslatablePolygon(board, vertices1)
 
 const vertices2 = [
   [12.0, 0.0, ],
@@ -101,7 +141,8 @@ const pProps2 = {
   shadow: true,
   ...vProps2, // Faz o snap do poligono ser igual ao dos pontos
 }
-var poligono2 = new zeta.TranslatablePolygon(board, vertices2, vProps2, pProps2)
+// var poligono2 =
+new zeta.TranslatablePolygon(board, vertices2, vProps2, pProps2)
 
 const vertices3 = [
   [8.0, 4.0, ],
@@ -109,7 +150,8 @@ const vertices3 = [
   [12.0, 8.0, ],
   [8.0, 8.0, ],
 ]
-var poligono3 = new zeta.RotatablePolygon(board, vertices3)
+// var poligono3 =
+new zeta.RotatablePolygon(board, vertices3)
 
 const vertices4 = [
   [-20, -5, ],
@@ -117,11 +159,6 @@ const vertices4 = [
   [-10, 5, ],
   [-20, 5, ],
 ]
-const properties4 = {
-  vertices: {
-    visible: false,
-  },
-}
 // g4 = []
 // for (p of vertices4) {
 //   g4.push(board.create('point', p, { visible: false }));
