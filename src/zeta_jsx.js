@@ -14,6 +14,12 @@ import JXG from 'jsxgraph'
 
 // -------------------------------------------------------------------------------
 
+// Variáveis globais
+let gGotDown = false
+let gIsDragging = false
+
+// -------------------------------------------------------------------------------
+
 // eslint-disable-next-line no-unused-vars
 class TranslatablePolygon {
   constructor(board, vertices, verticesProps, polygonProps) {
@@ -171,6 +177,7 @@ class RotatablePolygon {
 class DiscreteRotationPolygon {
   constructor(board, numRotations, vertices, verticesProps, polygonProps, centerProps) {
     const debugVertices = false
+    const debugEvents = false
     // const debugVertices = true
     this.board = board
     // Properties
@@ -188,7 +195,7 @@ class DiscreteRotationPolygon {
       snapToGrid: true,
       snapSizeX: 1,
       snapSizeY: 1,
-      visible: true,
+      visible: false,
       name: debugVertices ? 'center' : '',
       color: 'blue',
       ...centerProps,
@@ -227,13 +234,13 @@ class DiscreteRotationPolygon {
     // - Reference points are the possible glider positions.
     const gliderProps = {
       ...mergedVerticesProps,
-      visible: true,
+      visible: false,
       face: 'plus',
       name: debugVertices ? 'glider' : '',
     }
     const phantomProps = {
       ...mergedVerticesProps,
-      visible: true,
+      visible: false,
       face: 'plus',
       name: debugVertices ? 'phantom' : '',
     }
@@ -325,34 +332,59 @@ class DiscreteRotationPolygon {
       },
       withLines: false,
     }
-    const mergedPolygonProps = {
+    this.mergedPolygonProps = {
       ...localPolygonProps, ...polygonProps,
     }
     this.vertices = pointsArray
-    this.polygon = board.create('polygon', pointsArray, mergedPolygonProps)
-    this.dragging = false
-    if (mergedPolygonProps.clickToRotate) {
-      this.polygon.on('up', () => {
-        if (!this.dragging) {
-          this.rotateRelative(1)
-        }
-        this.dragging = false
-      })
-    }
+    this.polygon = board.create('polygon', pointsArray, this.mergedPolygonProps)
     this.downDX = 0
     this.downDY = 0
+    this.gotDown = false
+    this.printDebugEvents = debugEvents ? (msg) => {
+      // eslint-disable-next-line no-console
+      console.log(msg,
+        'name: ' + this.mergedPolygonProps.name +
+        ', gGotDown: ' + gGotDown +
+        ', t.gotDown: ' + this.gotDown
+      )
+    } : () => { }
     this.polygon.on('down', (e) => {
+      this.printDebugEvents('down in:')
+      gIsDragging = false
+      // Variável global de exclusão, apenas uma peça pode ser movimentada
+      if (!gGotDown) {
+        gGotDown = true
+        this.gotDown = true
+      }
+      // Pega as coordenadas do click do mouse em coordenadas de bounding box
       let coords = this.getMouseCoords(e, 0)
+      // Guarda a variação que será somada para movimentar o polígono
       this.downDX = this.center.X() - coords.usrCoords[1]
       this.downDY = this.center.Y() - coords.usrCoords[2]
+      this.printDebugEvents('down out:')
     })
     this.polygon.on('drag', (e) => {
-      this.dragging = true
+      this.printDebugEvents('drag in:')
+      gIsDragging = true
       let coords = this.getMouseCoords(e, 0)
       let cx = coords.usrCoords[1] + this.downDX
       let cy = coords.usrCoords[2] + this.downDY
-      // console.log(`dragging=${this.dragging} coords=(${cx},${cy})`)
+      // console.log(`gIsDragging=${gIsdragging} coords=(${cx},${cy})`)
       this.moveTo([cx, cy, ])
+      this.printDebugEvents('drag out:')
+    })
+    this.polygon.on('up', () => {
+      this.printDebugEvents('up in:')
+      if (this.gotDown) {
+        if (!gIsDragging) {
+          if (this.mergedPolygonProps.clickToRotate) {
+            this.rotateRelative(1)
+          }
+        }
+        this.gotDown = false
+        gGotDown = false
+      }
+      this.printDebugEvents('up out:')
     })
   }
   /* moveTo(): Método para mover um polígono rodável discreto
