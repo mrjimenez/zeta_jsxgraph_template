@@ -1,2 +1,5 @@
 node_modules
 dist/main.js
+dist/*.jpg
+dist/*.svg
+dist/*.png
