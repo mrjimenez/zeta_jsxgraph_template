@@ -54,7 +54,7 @@ function showImage(src, width, height, alt, cls) {
 showImage(imgJpg, 0, 0, 0, 'graphbox')
 showImage(imgSvg)
 
-var boundingbox = [-25, 25, 25, -25, ]
+var boundingbox = [-25, 25, 25, -25,]
 // console.log(boundingbox)
 
 var board = JXG.JSXGraph.initBoard('jxgbox', {
@@ -82,7 +82,7 @@ var resize = function () {
   const cliHeight = board.containerObj.clientHeight
   const scaleX = bbWidth / cliWidth
   const scaleY = bbHeight / cliHeight
-  let newBB = [...bb, ]
+  let newBB = [...bb,]
   let half = 0
   if (scaleX < scaleY) {
     half = cliWidth * scaleY / 2
@@ -108,11 +108,11 @@ var yRefInf = 0
 var yRefSup = yRefInf + yDelay
 var i
 // Monta área do desenho
-var p1 = board.create('point', [xRefLeft, yRefInf, ], { visible: false, })
-var p2 = board.create('point', [xRefLeft, yRefSup, ], { visible: false, })
-var p3 = board.create('point', [xRefRight, yRefSup, ], { visible: false, })
-var p4 = board.create('point', [xRefRight, yRefInf, ], { visible: false, })
-var f = board.create('polygon', [p1, p2, p3, p4, ], { fillcolor: 'blue', })
+var p1 = board.create('point', [xRefLeft, yRefInf,], { visible: false, })
+var p2 = board.create('point', [xRefLeft, yRefSup,], { visible: false, })
+var p3 = board.create('point', [xRefRight, yRefSup,], { visible: false, })
+var p4 = board.create('point', [xRefRight, yRefInf,], { visible: false, })
+var f = board.create('polygon', [p1, p2, p3, p4,], { fillcolor: 'blue', })
 for (i = 0; i < f.borders.length; i++) {
   f.borders[i].setProperty('strokeColor:black')
 }
@@ -123,22 +123,22 @@ for (i = 0; i < f.borders.length; i++) {
 
 // var pol3 =
 board.create('polygon',
-  [[30, 20, ], [30, 1, ], [50, 1, ], [50, 20, ], ])
+  [[30, 20,], [30, 1,], [50, 1,], [50, 20,],])
 
 const vertices1 = [
-  [0.0, 2.0, ],
-  [2.0, 2.0, ],
-  [4.0, 6.0, ],
-  [0.0, 6.0, ],
+  [0.0, 2.0,],
+  [2.0, 2.0,],
+  [4.0, 6.0,],
+  [0.0, 6.0,],
 ]
 // var poligono1 =
 new zeta.TranslatablePolygon(board, vertices1)
 
 const vertices2 = [
-  [12.0, 0.0, ],
-  [16.0, 0.0, ],
-  [16.0, 8.0, ],
-  [20.0, 8.0, ],
+  [12.0, 0.0,],
+  [16.0, 0.0,],
+  [16.0, 8.0,],
+  [20.0, 8.0,],
 ]
 // Propriedades dos vertices
 const vProps2 = {
@@ -159,25 +159,25 @@ const pProps2 = {
 new zeta.TranslatablePolygon(board, vertices2, vProps2, pProps2)
 
 const vertices3 = [
-  [8.0, 4.0, ],
-  [14.0, 4.0, ],
-  [12.0, 8.0, ],
-  [8.0, 8.0, ],
+  [8.0, 4.0,],
+  [14.0, 4.0,],
+  [12.0, 8.0,],
+  [8.0, 8.0,],
 ]
 // var poligono3 =
 new zeta.RotatablePolygon(board, vertices3)
 
 const vertices4 = [
-  [-10, -5, ],
-  [0, -5, ],
-  [0, 5, ],
-  [-10, 5, ],
+  [-10, -5,],
+  [0, -5,],
+  [0, 5,],
+  [-10, 5,],
 ]
 const vertices5 = [
-  [-10, 5, ],
-  [0, 5, ],
-  [0, 15, ],
-  [-10, 15, ],
+  [-10, 5,],
+  [0, 5,],
+  [0, 15,],
+  [-10, 15,],
 ]
 const pProps4 = {
   fillColor: '#00FF00',

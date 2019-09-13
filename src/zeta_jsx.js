@@ -90,7 +90,7 @@ class RotatablePolygon {
     const dx = vertices[1][0] - vertices[0][0]
     const dy = vertices[1][1] - vertices[0][1]
     const radius = Math.sqrt(dx * dx + dy * dy)
-    const circle = board.create('circle', [this.center, radius, ],
+    const circle = board.create('circle', [this.center, radius,],
       { visible: debugVertices, })
     const gliderProps = {
       ...mergedVerticesProps,
@@ -99,7 +99,7 @@ class RotatablePolygon {
       name: '',
     }
     this.glider = board.create('glider',
-      [vertices[1][0], vertices[1][1], circle, ], gliderProps)
+      [vertices[1][0], vertices[1][1], circle,], gliderProps)
     this.angleCg = Math.atan2(
       this.glider.Y() - this.center.Y(),
       this.glider.X() - this.center.X())
@@ -113,7 +113,7 @@ class RotatablePolygon {
       () => {
         var me = this
         return me.center.Y() - me.origCenter[1]
-      }, ],
+      },],
       { type: 'translate', })
     const rotation = board.create('transform',
       [() => {
@@ -126,12 +126,12 @@ class RotatablePolygon {
         // const steps = angle / angleStep
         // angle = angleStep * Math.round(steps)
         return angle - me.angleCg
-      }, this.center, ],
+      }, this.center,],
       { type: 'rotate', })
-    let pointsArray = [this.center, this.glider, ]
+    let pointsArray = [this.center, this.glider,]
     for (let i = 2; i < vertices.length; ++i) {
       let q = board.create('point', vertices[i], { visible: false, })
-      let p = board.create('point', [q, [translation, rotation, ], ], mergedVerticesProps)
+      let p = board.create('point', [q, [translation, rotation,],], mergedVerticesProps)
       pointsArray.push(p)
     }
     const localPolygonProps = {
@@ -165,7 +165,7 @@ class RotatablePolygon {
     const deltaY = position[1] - this.center.Y()
     for (let i = 0; i < 2; ++i) {
       const q = this.vertices[i]
-      const delta = [q.X() + deltaX, q.Y() + deltaY, ]
+      const delta = [q.X() + deltaX, q.Y() + deltaY,]
       q.moveTo(delta)
     }
   }
@@ -209,11 +209,11 @@ class DiscreteRotationPolygon {
     })
     this.center.on('drag', () => {
       var me = this
-      me.phantom.moveTo([me.glider.X(), me.glider.Y(), ])
+      me.phantom.moveTo([me.glider.X(), me.glider.Y(),])
     })
     this.center.on('up', () => {
       var me = this
-      me.phantom.moveTo([me.glider.X(), me.glider.Y(), ])
+      me.phantom.moveTo([me.glider.X(), me.glider.Y(),])
       me.phantom.setAttribute({ visible: true, })
     })
     this.origCenter = v[0]
@@ -226,7 +226,7 @@ class DiscreteRotationPolygon {
       () => {
         var me = this
         return me.center.Y() - me.origCenter[1]
-      }, ],
+      },],
       { type: 'translate', })
     // Glider, phantom and reference points
     // - Glider is the point that belongs to the polygon that moves.
@@ -254,22 +254,22 @@ class DiscreteRotationPolygon {
     this.phantom = board.create('point', vertices[1], phantomProps)
     this.phantom.on('up', () => {
       var me = this
-      me.phantom.moveTo([me.glider.X(), me.glider.Y(), ])
+      me.phantom.moveTo([me.glider.X(), me.glider.Y(),])
     })
     this.reference0 = board.create('point', vertices[1],
       { ...phantomProps, name: 'ref0', visible: false, }
     )
     const discreteRotation = board.create('transform',
-      [2 * Math.PI / numRotations, this.center, ],
+      [2 * Math.PI / numRotations, this.center,],
       { type: 'rotate', })
     this.references = []
     //
     let p = this.reference0
     for (let i = 0; i < numRotations; ++i) {
       if (i === 0) {
-        p = board.create('point', [p, [centerTranslation, ], ], referenceProps)
+        p = board.create('point', [p, [centerTranslation,],], referenceProps)
       } else {
-        p = board.create('point', [p, [discreteRotation, ], ], referenceProps)
+        p = board.create('point', [p, [discreteRotation,],], referenceProps)
       }
       this.references.push(p)
     }
@@ -310,12 +310,12 @@ class DiscreteRotationPolygon {
           me.glider.Y() - me.center.Y(),
           me.glider.X() - me.center.X())
         return angle - me.angleCenterGlider
-      }, this.center, ],
+      }, this.center,],
       { type: 'rotate', })
-    let pointsArray = [this.center, this.glider, ]
+    let pointsArray = [this.center, this.glider,]
     for (let i = 2; i < vertices.length; ++i) {
       let q = board.create('point', vertices[i], { visible: false, })
-      let p = board.create('point', [q, [centerTranslation, gliderRotation, ], ], mergedVerticesProps)
+      let p = board.create('point', [q, [centerTranslation, gliderRotation,],], mergedVerticesProps)
       pointsArray.push(p)
     }
     const localPolygonProps = {
@@ -370,7 +370,7 @@ class DiscreteRotationPolygon {
       let cx = coords.usrCoords[1] + this.downDX
       let cy = coords.usrCoords[2] + this.downDY
       // console.log(`gIsDragging=${gIsdragging} coords=(${cx},${cy})`)
-      this.moveTo([cx, cy, ])
+      this.moveTo([cx, cy,])
       this.printDebugEvents('drag out:')
     })
     this.polygon.on('up', () => {
@@ -398,16 +398,16 @@ class DiscreteRotationPolygon {
     const deltaX = position[0] - this.center.X()
     const deltaY = position[1] - this.center.Y()
     let c = this.center
-    c.moveTo([c.X() + deltaX, c.Y() + deltaY, ])
+    c.moveTo([c.X() + deltaX, c.Y() + deltaY,])
     let g = this.glider
-    g.moveTo([g.X() + deltaX, g.Y() + deltaY, ])
+    g.moveTo([g.X() + deltaX, g.Y() + deltaY,])
     let p = this.phantom
     // p.moveTo([p.X() + deltaX, p.Y() + deltaY, ])
-    p.moveTo([g.X(), g.Y(), ])
+    p.moveTo([g.X(), g.Y(),])
   }
   moveToRelative(delta) {
     let p = this.center
-    this.moveTo([p.X() + delta[0], p.Y() + delta[1], ])
+    this.moveTo([p.X() + delta[0], p.Y() + delta[1],])
   }
   /* rotate(): Rotates a DiscreteRotationPolygon around the center.
   *           The value of n is an absolute position.
@@ -419,7 +419,7 @@ class DiscreteRotationPolygon {
   rotate(n) {
     n = Math.round(n) % this.numRotations
     let p = this.references[n]
-    let where = [p.X(), p.Y(), ]
+    let where = [p.X(), p.Y(),]
     this.glider.moveTo(where)
     this.phantom.moveTo(where)
   }
@@ -454,7 +454,7 @@ class DiscreteRotationPolygon {
     var dx = absPos[0] - cPos[0]
     var dy = absPos[1] - cPos[1]
 
-    return new JXG.Coords(JXG.COORDS_BY_SCREEN, [dx, dy, ], this.board)
+    return new JXG.Coords(JXG.COORDS_BY_SCREEN, [dx, dy,], this.board)
   }
 }
 
@@ -463,7 +463,7 @@ class DiscreteRotationPolygon {
 // eslint-disable-next-line no-unused-vars
 class Figura {
   constructor(board, local, xFig, yFig, lFig, aFig) {
-    this.fig = board.create('image', [local, [xFig, yFig, ], [lFig, aFig, ], ],
+    this.fig = board.create('image', [local, [xFig, yFig,], [lFig, aFig,],],
       {
         fixed: true,
         highlightFillOpacity: 1.0,
@@ -505,10 +505,10 @@ class Drawing {
     }
 
     let segmentsArray = []
-    let l = board.create('segment', [vertices[vertices.length - 1], vertices[0], ], mergedSegmentProps)
+    let l = board.create('segment', [vertices[vertices.length - 1], vertices[0],], mergedSegmentProps)
     segmentsArray.push(l)
     for (let i = 1; i < vertices.length; ++i) {
-      let l = board.create('segment', [vertices[i], vertices[i - 1], ], mergedSegmentProps)
+      let l = board.create('segment', [vertices[i], vertices[i - 1],], mergedSegmentProps)
       segmentsArray.push(l)
     }
 
