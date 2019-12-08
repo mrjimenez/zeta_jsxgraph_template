@@ -28,21 +28,21 @@
   },
   "homepage": "https://github.com/mrjimenez/app_template#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "css-loader": "^3.2.1",
+    "file-loader": "^4.3.0",
+    "style-loader": "^1.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
+    "@babel/polyfill": "^7.7.0",
     "canvas": "^2.6.0",
-    "core-js": "^3.2.1",
+    "core-js": "^3.4.7",
     "jsxgraph": "^0.99.7"
   }
 }
