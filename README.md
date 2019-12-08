@@ -1,12 +1,14 @@
 # Application template
 
+![master](https://github.com/mrjimenez/zeta_jsxgraph_template/workflows/Node%20CI%20Test/badge.svg)
+
 ## NPM (package.json)
 
 ```bash
-$ mkdir app
-$ cd app
-$ git init # cria o repositório git.
-$ npm init # cria o package.json
+mkdir app
+cd app
+git init # cria o repositório git.
+npm init # cria o package.json
 ...
 Press ^C at any time to quit.
 package name: (app_template)
@@ -47,12 +49,12 @@ About to write to /home/mroberto/mrj/impa/jsxgraph/app_template/package.json:
 
 Is this OK? (yes)
 ...
-$ touch README.md .gitignore
-$ npm install webpack webpack-cli --save-dev
-$ npm install -g live-server
+touch README.md .gitignore
+npm install webpack webpack-cli --save-dev
+npm install -g live-server
 installs...
-$ npm list -g --depth=0
-$ live-server
+npm list -g --depth=0
+live-server
 ```
 
 ## Webpack <https://webpack.js.org/concepts> (webpack.config.js)
