@@ -4,7 +4,7 @@
   "description": "Zeta Tecnologia Template App",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Warning: no tests specified yet\" && exit 0",
     "devel": "webpack --mode development",
     "devel1": "webpack index.js --output ./bundle.js --mode development",
     "production": "webpack --mode production",
