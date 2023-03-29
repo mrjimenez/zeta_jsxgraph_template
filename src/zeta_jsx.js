@@ -276,14 +276,14 @@ class DiscreteRotationPolygon {
     // Which is the current reference point?
     let refIndex = function (me) {
       let ret = 0
-      let dmin = 10000
+      let d_min = 10000
       for (let i = 0; i < me.references.length; ++i) {
         let p = me.references[i]
         const dx = me.phantom.X() - p.X()
         const dy = me.phantom.Y() - p.Y()
         const d = dx * dx + dy * dy
-        if (d < dmin) {
-          dmin = d
+        if (d < d_min) {
+          d_min = d
           ret = i
         }
       }
@@ -369,7 +369,7 @@ class DiscreteRotationPolygon {
       let coords = this.getMouseCoords(e, 0)
       let cx = coords.usrCoords[1] + this.downDX
       let cy = coords.usrCoords[2] + this.downDY
-      // console.log(`gIsDragging=${gIsdragging} coords=(${cx},${cy})`)
+      // console.log(`gIsDragging=${gIsDragging} coords=(${cx},${cy})`)
       this.moveTo([cx, cy,])
       this.printDebugEvents('drag out:')
     })
@@ -515,10 +515,10 @@ class Drawing {
     this.vertices = pointsArray
     this.segments = segmentsArray
 
-    const corfundoDesenhos = '#dfe0e0'
+    const cor_fundo_desenhos = '#dfe0e0'
     this.polygon = board.create('polygon', pointsArray, {
       withLines: false,
-      fillColor: corfundoDesenhos,
+      fillColor: cor_fundo_desenhos,
       fillOpacity: 1.0,
     })
   }

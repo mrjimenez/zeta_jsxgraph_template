@@ -1,9 +1,9 @@
-// Pacotes instalados com 'node install' são incluidos assim:
+// Pacotes instalados com 'node install' são incluídos assim:
 // var jsxgraph = require('jsxgraph')
 import JXG from 'jsxgraph'
 
-// Os arquivos do jsxgraph dentro do node_modules são incluido assim:
-import 'jsxgraph/distrib/jsxgraph.css'
+// Os arquivos do jsxgraph dentro do node_modules são incluídos assim:
+//import 'jsxgraph/distrib/jsxgraph.css'
 
 // Arquivos .js não precisam de extensão. Existem várias sintaxes deste
 // comando import. Essa cria um "namespace" que tem que ser usado em
