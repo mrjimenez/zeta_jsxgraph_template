@@ -40,7 +40,7 @@
     "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
-    "canvas": "^2.11.0",
+    "canvas": "^3.2.1",
     "core-js": "^3.29.1",
     "jsxgraph": "^1.5.0"
   }
